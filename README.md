@@ -1,106 +1,162 @@
-# 🚀 GearGuard – Maintenance Management System
+# 🛠️ GearGuard – Maintenance Management System
 
-*A Full-Stack MERN Application for Smart Equipment Maintenance*
-
----
-
-## 📌 Project Overview
-
-**GearGuard** is a **Maintenance Management System** designed to help organizations efficiently **track equipment, manage maintenance teams, and handle repair requests** in a structured and digital way.
-
-This project was developed as a **group academic project** under the guidance of our mentor to demonstrate **real-world problem solving using modern web technologies**.
-
-Instead of manual logs or spreadsheets, GearGuard provides a **centralized platform** to:
-
-* Track company assets
-* Assign maintenance work
-* Monitor repair progress
-* Schedule preventive maintenance
-* Generate insights through reports
+**GearGuard** is a full-stack MERN-based maintenance management system designed to help organizations efficiently track equipment, manage maintenance teams, and handle repair requests through a smart, visual, and automated workflow.
 
 ---
 
-## 🎯 Project Objectives (Motive)
+## 📌 Project Objective
 
-The main objectives of GearGuard are:
+The main goal of GearGuard is to **digitize and simplify maintenance operations** by connecting:
 
-* To **reduce equipment downtime**
-* To **organize maintenance workflows**
-* To **assign the right technician to the right job**
-* To **prevent unexpected breakdowns**
-* To provide **clear visibility** of maintenance activities to managers
+* 🧰 **Equipment** (what needs maintenance)
+* 👨‍🔧 **Teams & Technicians** (who performs maintenance)
+* 📋 **Requests** (what work needs to be done)
 
----
-
-## 🧠 Problem Statement
-
-In many organizations:
-
-* Maintenance requests are handled manually
-* No proper tracking of machines
-* No clear responsibility of technicians
-* Preventive maintenance is ignored
-
-This leads to:
-
-* Delayed repairs
-* Production loss
-* Higher maintenance cost
-
-**GearGuard solves this problem** by digitally connecting **Equipment, Teams, and Maintenance Requests**.
+This system helps reduce downtime, improve accountability, and ensure preventive maintenance is never missed.
 
 ---
 
-## ⚙️ How the System Works
+## 🎯 Motivation (Why This Project?)
 
-1. **Equipment Registration**
-   All machines, computers, and assets are added with details like department, location, and assigned maintenance team.
+In many companies, maintenance is handled using:
 
-2. **Team Management**
-   Maintenance teams (Mechanics, Electricians, IT Support) are created and technicians are assigned.
+* Registers
+* Excel sheets
+* WhatsApp messages
 
-3. **Maintenance Requests**
+These methods cause:
 
-   * Corrective (Breakdown repair)
-   * Preventive (Routine checkups)
+* Missed maintenance schedules
+* No tracking of repair history
+* Poor accountability
 
-4. **Workflow Tracking**
-   Requests move through stages:
-
-   * New → In Progress → Repaired → Scrap
-
-5. **Kanban Board**
-   Technicians visually manage tasks using drag-and-drop cards.
-
-6. **Calendar View**
-   Preventive maintenance is scheduled and shown in a calendar.
-
-7. **Reports**
-   Managers can analyze maintenance data for better decision-making.
+**GearGuard solves this problem** by providing a centralized, role-based, and automated maintenance system similar to professional ERP tools (like Odoo), but simplified for learning and real-world use.
 
 ---
 
-## 🧩 Key Features
+## ⚙️ Key Features
 
-* Equipment Management
-* Maintenance Team Assignment
-* Corrective & Preventive Maintenance
-* Kanban Board (Visual Workflow)
-* Calendar-based Scheduling
-* Scrap Logic for unusable equipment
-* Reports & Analytics
-* Responsive UI
+### 🧰 Equipment Management
+
+* Central database of all assets (machines, laptops, vehicles, etc.)
+* Track equipment by:
+
+  * Department
+  * Assigned employee
+* Store details:
+
+  * Serial number
+  * Purchase date
+  * Warranty
+  * Physical location
+* Each equipment is linked to a **maintenance team**
 
 ---
 
-## 🛠️ Technology Stack
+### 👨‍🔧 Maintenance Teams
+
+* Create multiple specialized teams:
+
+  * Mechanics
+  * Electricians
+  * IT Support
+* Assign technicians to teams
+* Only relevant team members can handle assigned requests
+
+---
+
+### 📋 Maintenance Requests
+
+Two types of maintenance:
+
+* **Corrective** – sudden breakdowns
+* **Preventive** – scheduled routine maintenance
+
+Request details include:
+
+* Problem description
+* Equipment selection (auto-fills team)
+* Scheduled date
+* Repair duration
+* Technician assignment
+* Status tracking
+
+---
+
+## 🔄 Functional Workflow
+
+### 🔴 Breakdown Flow
+
+1. User creates a maintenance request
+2. Selecting equipment auto-assigns team
+3. Request status starts as **New**
+4. Technician picks the task
+5. Status moves to **In Progress**
+6. After repair, duration is logged
+7. Status becomes **Repaired**
+
+---
+
+### 🟢 Preventive Maintenance Flow
+
+1. Manager creates a preventive request
+2. Sets a future scheduled date
+3. Request appears in **Calendar View**
+4. Technician completes task on scheduled date
+
+---
+
+## 🖥️ User Interface & Views
+
+### 📌 Kanban Board
+
+* Visual board with stages:
+
+  * New | In Progress | Repaired | Scrap
+* Drag & drop request cards
+* Shows:
+
+  * Assigned technician avatar
+  * Overdue indicators
+
+---
+
+### 📅 Calendar View
+
+* Displays preventive maintenance schedules
+* Click on a date to add a new request
+
+---
+
+### 📊 Reports (Optional)
+
+* Maintenance requests per team
+* Requests per equipment category
+
+---
+
+## 🤖 Smart Automation
+
+* **Smart Button on Equipment**
+
+  * Shows number of related maintenance requests
+* **Scrap Logic**
+
+  * If request is marked Scrap, equipment is flagged unusable
+* **Auto-Fill Logic**
+
+  * Selecting equipment auto-assigns team and category
+
+---
+
+## 🏗️ Tech Stack
 
 ### Frontend
 
 * React (Vite)
-* HTML5, CSS3
+* HTML5, CSS3 (Global CSS)
 * JavaScript
-* Responsive Design
+* Responsive UI
 
 ### Backend
 
@@ -108,78 +164,76 @@ This leads to:
 * Express.js
 * MongoDB (Mongoose)
 
-### Deployment
+### Tools
 
-* **Frontend:** Vercel
-* **Design & UI:** v0.app
-* **Version Control:** GitHub
+* GitHub (Version Control)
+* Vercel (Deployment)
+* Replit (Development)
 
 ---
 
-## 📁 Project Structure (Simplified)
+## 📁 Project Structure
 
 ```
 gearguard-mern/
-├── client/   → Frontend (React + Vite)
-├── server/   → Backend (Node + Express)
+├── client/   (Vite + React)
+├── server/   (Node.js + Express)
 └── README.md
 ```
 
 ---
 
-## 🌐 Live Deployment
+## 👥 Team Members
 
-🔗 **Live Project:**
-[https://vercel.com/ritikkalal007s-projects/v0-gear-guard-maintenance-system](https://vercel.com/ritikkalal007s-projects/v0-gear-guard-maintenance-system)
-
----
-
-## 👥 Project Team
-
-**Group Project Developed By:**
-
-* Team Members: *[Add group member names here]*
-
-**Mentor:**
-
-* *[Mentor Name]*
+| Name            | GitHub      |
+| --------------- | ----------- |
+| Harsh Mandaliya | Contributor |
+| dhruv18457      | Contributor |
+| MrA18Makes      | Contributor |
 
 ---
 
-## 📚 Academic Relevance
+## 🎓 Mentor
 
-This project demonstrates:
-
-* MERN stack development
-* MVC architecture
-* REST API design
-* Real-world business logic
-* Team collaboration
-* Deployment and version control
-
-It is suitable for:
-
-* Final year project
-* Mini project
-* Practical evaluation
-* Portfolio showcase
+* **GitHub:** maad-odoo
+* **Role:** Project Guidance, Code Review, Architecture Suggestions
 
 ---
 
-## 🔮 Future Enhancements
+## 🤝 Collaboration Method
 
-* Role-based authentication (Admin / Manager / Technician)
-* Email notifications
+* GitHub repository collaboration
+* Team members with **Write access**
+* Mentor added as **Maintainer**
+* Version control using Git & GitHub
+
+---
+
+## 🚀 Deployment
+
+* Hosted on **Vercel**
+* Continuous deployment via GitHub
+
+---
+
+## 📌 Future Enhancements
+
+* Authentication & role-based access
+* Notifications & alerts
 * Mobile-friendly PWA
-* Advanced analytics
-* Integration with IoT devices
+* Advanced analytics dashboard
 
 ---
 
-## 📝 Conclusion
+## 📜 Conclusion
 
-**GearGuard** is a practical, real-world maintenance management solution that showcases how modern web technologies can be used to solve common industrial problems efficiently.
+GearGuard is a practical, real-world inspired project that demonstrates:
+
+* Full-stack development skills
+* Business workflow understanding
+* Team collaboration
+* Scalable system design
+
+This project bridges the gap between **academic learning** and **industry-level applications**.
 
 ---
-
-### ⭐ “A smart solution for smarter maintenance.”
